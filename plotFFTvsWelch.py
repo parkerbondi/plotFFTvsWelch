@@ -78,8 +78,52 @@ fig.add_trace(go.Scatter(x=x3f, y=2.0/10000 * np.abs(y3f[:10000//2]),
 
 # fig.update_layout(showlegend=False)
 fig.update_layout(title_text='Dummy', title_x=0.5)
+plot(fig, filename='Dummy FFT.html')
 
-plot(fig, filename='Dummy.html')
+fig01 = make_subplots(
+        rows=2, cols=1,
+        # subplot_titles=sub_titles,
+        # column_widths=[0.65,0.35],
+        # shared_xaxes='columns',
+        # shared_yaxes='columns',
+        vertical_spacing=0.01,
+        horizontal_spacing=0.01)
+
+fig01.add_trace(go.Scatter(x=x1, y=y1,
+                         mode='lines',
+                         # line=dict(color='Green')
+                         ),
+              row=1, col=1)
+fig01.add_trace(go.Scatter(x=x2, y=y2,
+                          mode='lines',
+                          # line=dict(color='Green')
+                          ),
+              row=1, col=1)
+fig01.add_trace(go.Scatter(x=x3, y=y3,
+                          mode='lines',
+                          # line=dict(color='Green')
+                          ),
+              row=1, col=1)
+fig01.add_trace(go.Scatter(x=f1, y=pxx1,
+                         mode='lines',
+                         # line=dict(color='Green')
+                         ),
+              row=2, col=1)
+fig01.add_trace(go.Scatter(x=f1, y=pxx2,
+                         mode='lines',
+                         # line=dict(color='Green')
+                         ),
+              row=2, col=1)
+fig01.add_trace(go.Scatter(x=f1, y=pxx3,
+                         mode='lines',
+                         # line=dict(color='Green')
+                         ),
+              row=2, col=1)
+
+# fig01.update_layout(showlegend=False)
+fig01.update_layout(title_text='Dummy', title_x=0.5)
+
+plot(fig01, filename='Dummy PSD.html')
 
 
 
